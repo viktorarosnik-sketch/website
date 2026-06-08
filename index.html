@@ -1,553 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vanguard Mobility - Foreign Employment Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanguard Mobility - Foreign Employment Services</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-<style>
-:root{
-  --primary:#2563eb;
-  --primary-dark:#1e40af;
-  --accent:#f59e0b;
-  --dark:#0f172a;
-  --text:#1e293b;
-  --bg:#f1f5f9;
-  --border:#e2e8f0;
-}
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --accent: #f59e0b;
+            --dark: #0f172a;
+            --text: #1e293b;
+            --bg: #f1f5f9;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
 
-body{
-  font-family:'Inter',sans-serif;
-  background:var(--bg);
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+        }
 
-/* TOP BAR */
-.topbar{
-  background:var(--dark);
-  color:#cbd5e1;
-  font-size:13px;
-}
+        /* Глобальные переходы для ссылок */
+        a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-/* NAV */
-.navbar{
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-}
+        /* TOP BAR */
+        .topbar {
+            background: var(--dark);
+            color: #cbd5e1;
+            font-size: 13px;
+        }
 
-.navbar a{
-  color:#fff!important;
-  font-weight:500;
-}
+        /* NAV */
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+        }
+        .navbar a {
+            color: #fff !important;
+            font-weight: 500;
+        }
 
-/* HERO */
-.hero{
-  background:linear-gradient(135deg,rgba(37,99,235,.9),rgba(15,23,42,.85)),
-  url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80');
-  background-size:cover;
-  background-position:center;
-  color:#fff;
-  padding:90px 0;
-  text-align:center;
-}
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, rgba(37, 99, 235, .9), rgba(15, 23, 42, .85)),
+            url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            padding: 90px 0;
+            text-align: center;
+        }
 
-/* SECTION TITLE */
-.section-title{
-  font-weight:700;
-  margin-bottom:30px;
-}
+        .section-title {
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
 
-/* CARD BASE */
-.card-box{
-  background:#fff;
-  border:1px solid var(--border);
-  padding:20px;
-  border-radius:16px;
-  transition:.25s;
-  box-shadow:0 6px 20px rgba(0,0,0,.05);
-}
+        /* CARD BASE */
+        .card-box {
+            background: #fff;
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 16px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .05);
+        }
+        .card-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .12);
+        }
 
-.card-box:hover{
-  transform:translateY(-6px);
-  box-shadow:0 18px 40px rgba(0,0,0,.12);
-}
+        /* SERVICES */
+        .service-card { text-align: center; padding: 25px 20px; }
+        .service-icon {
+            width: 60px; height: 60px;
+            margin: 0 auto 14px auto;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 26px; border-radius: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+            box-shadow: 0 10px 25px rgba(37, 99, 235, .25);
+            transition: var(--transition);
+        }
+        .card-box:hover .service-icon { transform: scale(1.1) rotate(-3deg); }
+        .service-title { font-weight: 600; font-size: 18px; margin-bottom: 8px; color: var(--dark); }
+        .service-text { font-size: 14px; color: #64748b; line-height: 1.5; }
 
-/* SERVICES */
-.service-card{
-  text-align:center;
-  padding:25px 20px;
-}
+        /* TRUST SECTION */
+        .trust-card { text-align: center; padding: 22px 15px; }
+        .trust-icon { font-size: 28px; color: var(--primary); margin-bottom: 10px; transition: var(--transition); }
+        .trust-card:hover .trust-icon { transform: scale(1.2); color: var(--primary-dark); }
+        .trust-text { font-size: 14px; font-weight: 500; color: #334155; }
 
-.service-icon{
-  width:60px;
-  height:60px;
-  margin:0 auto 14px auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:26px;
-  border-radius:16px;
-  background:linear-gradient(135deg,var(--primary),var(--primary-dark));
-  color:#fff;
-  box-shadow:0 10px 25px rgba(37,99,235,.25);
-  transition:.25s;
-}
+        /* ОПТИМИЗИРОВАННЫЙ ABOUT SECTION */
+        .about-section { background: linear-gradient(180deg, #ffffff, #f8fafc); position: relative; overflow: hidden; }
+        .about-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .about-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15);
+            border-color: rgba(37, 99, 235, 0.3);
+        }
+        .about-icon { font-size: 34px; margin-bottom: 10px; color: var(--primary); transition: var(--transition); }
+        .about-card:hover .about-icon { transform: scale(1.2) rotate(-5deg); }
+        .about-number { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+        .about-text { font-size: 14px; color: #64748b; font-weight: 500; }
 
-.card-box:hover .service-icon{
-  transform:scale(1.1) rotate(-3deg);
-}
+        /* NEWS */
+        .news-card { position: relative; border-radius: 16px; overflow: hidden; transition: var(--transition); }
+        .news-card img { height: 220px; object-fit: cover; width: 100%; filter: brightness(.75); transition: var(--transition); }
+        .news-card:hover img { transform: scale(1.05); filter: brightness(.55); }
+        .news-content {
+            position: absolute; bottom: 0; left: 0; right: 0;
+            padding: 18px; color: #fff;
+            background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
+        }
 
-.service-title{
-  font-weight:600;
-  font-size:18px;
-  margin-bottom:8px;
-  color:#0f172a;
-}
+        /* CONTACTS & TRANSITIONS */
+        .contact-card { background: #fff; border-radius: 18px; padding: 25px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.05); }
+        .contact-item { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; font-size: 14px; color: #334155; }
+        
+        /* Плавная ссылка на Email */
+        .contact-item a { color: var(--text); font-weight: 500; }
+        .contact-item a:hover { color: var(--primary); }
+        
+        .contact-icon {
+            width: 35px; height: 35px;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(37, 99, 235, .1); border-radius: 10px; color: var(--primary);
+        }
 
-.service-text{
-  font-size:14px;
-  color:#64748b;
-  line-height:1.5;
-}
+        form input, form textarea { border-radius: 12px !important; border: 1px solid #e2e8f0 !important; padding: 10px !important; transition: var(--transition); }
+        form input:focus, form textarea:focus { border-color: var(--primary) !important; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important; outline: none; }
+        
+        .whatsapp-float {
+            position: fixed; right: 18px; bottom: 18px;
+            width: 56px; height: 56px;
+            background: #25D366; color: #fff; font-size: 26px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; box-shadow: 0 10px 25px rgba(0, 0, 0, .2);
+            z-index: 999; transition: var(--transition);
+        }
+        .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); color: #fff; }
 
-/* ========================= */
-/* 🔥 UPDATED ABOUT SECTION */
-/* ========================= */
-
-.about-card{
-  background:linear-gradient(135deg,#ffffff, #f8fafc);
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:30px 20px;
-  text-align:center;
-  transition:.3s;
-  position:relative;
-  overflow:hidden;
-}
-
-.about-card::before{
-  content:"";
-  position:absolute;
-  top:-50%;
-  left:-50%;
-  width:200%;
-  height:200%;
-  background:radial-gradient(circle, rgba(37,99,235,0.08), transparent 60%);
-  transform:rotate(25deg);
-}
-
-.about-card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(0,0,0,.12);
-}
-
-.about-icon{
-  font-size:30px;
-  margin-bottom:10px;
-}
-
-.about-number{
-  font-size:28px;
-  font-weight:700;
-  color:var(--primary);
-}
-
-.about-text{
-  color:#64748b;
-  font-size:14px;
-}
-
-/* ========================= */
-/* 🔥 UPDATED NEWS SECTION */
-/* ========================= */
-
-.news-card{
-  position:relative;
-  border-radius:16px;
-  overflow:hidden;
-  transition:.3s;
-}
-
-.news-card img{
-  height:220px;
-  object-fit:cover;
-  width:100%;
-  filter:brightness(.75);
-  transition:.3s;
-}
-
-.news-card:hover img{
-  transform:scale(1.05);
-  filter:brightness(.55);
-}
-
-.news-content{
-  position:absolute;
-  bottom:0;
-  left:0;
-  right:0;
-  padding:18px;
-  color:#fff;
-  background:linear-gradient(to top, rgba(0,0,0,.8), transparent);
-}
-
-.news-title{
-  font-weight:600;
-  margin-bottom:5px;
-}
-
-.news-text{
-  font-size:13px;
-  opacity:.9;
-}
-
-/* ========================= */
-/* 🔥 UPDATED CONTACT SECTION */
-/* ========================= */
-
-.contact-card{
-  background:#fff;
-  border-radius:18px;
-  padding:25px;
-  border:1px solid var(--border);
-  box-shadow:0 10px 30px rgba(0,0,0,.05);
-}
-
-.contact-item{
-  display:flex;
-  gap:10px;
-  margin-bottom:12px;
-  align-items:center;
-  font-size:14px;
-  color:#334155;
-}
-
-.contact-icon{
-  width:35px;
-  height:35px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(37,99,235,.1);
-  border-radius:10px;
-}
-
-form input, form textarea{
-  border-radius:12px!important;
-  border:1px solid #e2e8f0!important;
-  padding:10px!important;
-}
-
-form button{
-  border-radius:12px!important;
-  padding:12px;
-  font-weight:600;
-}
-
-/* FOOTER */
-footer{
-  background:var(--dark);
-  color:#94a3b8;
-  padding:30px 0;
-  margin-top:40px;
-}
-</style>
+        footer { background: var(--dark); color: #94a3b8; padding: 30px 0; margin-top: 40px; }
+    </style>
 </head>
 
 <body>
 
-<!-- TOP BAR -->
 <div class="topbar py-2">
-  <div class="container d-flex justify-content-between">
-    <div>Vanguard Mobility | Foreign Employment Services</div>
-    <div>
-      WhatsApp:
-      <a href="https://wa.me/380960391094" target="_blank" style="color:#f59e0b;">
-        +380960391094
-      </a>
+    <div class="container d-flex justify-content-between">
+        <div>Vanguard Mobility | Foreign Employment Services</div>
+        <div>
+            WhatsApp: <a href="https://wa.me/380947101170" target="_blank" style="color:var(--accent);">+380947101170</a>
+        </div>
     </div>
-  </div>
 </div>
 
-<!-- NAV -->
-<nav class="navbar navbar-expand-lg navbar-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">Vanguard Mobility</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="menu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+<nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Vanguard Mobility</a>
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </div>
-  </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="container">
-    <h1>Foreign Employment & Work Permits in Ukraine</h1>
-    <p class="mt-3">
-      We help foreign workers find legal employment and provide full documentation, visa, and migration services.
-    </p>
-
-    <a href="https://wa.me/380960391094?text=Hello%20I%20would%20like%20consultation"
-       target="_blank"
-       class="btn btn-warning btn-lg mt-3">
-      Get Consultation
-    </a>
-  </div>
+    <div class="container" data-aos="fade-up">
+        <h1 class="display-4 fw-bold">Foreign Employment & Work Permits in Ukraine</h1>
+        <p class="lead mt-3">We help foreign workers find legal employment and provide full documentation, visa, and migration services.</p>
+        <a href="https://wa.me/380947101170?text=Hello%20I%20would%20like%20consultation" target="_blank" class="btn btn-warning btn-lg mt-3 fw-bold">Get Consultation</a>
+    </div>
 </section>
 
-<!-- SERVICES (UNCHANGED) -->
 <section id="services" class="py-5">
-  <div class="container">
-    <h2 class="section-title text-center">Our Services</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card-box service-card">
-          <div class="service-icon">📄</div>
-          <div class="service-title">Work Permits</div>
-          <div class="service-text">Full preparation and submission of employment documents.</div>
+    <div class="container">
+        <h2 class="section-title text-center" data-aos="fade-up">Our Services</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-box service-card">
+                    <div class="service-icon"><i class="fa-solid fa-file-signature"></i></div>
+                    <div class="service-title">D Visa</div>
+                    <div class="service-text">Legal work and temporary residence permit. <br><strong>Total: $1,500</strong></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                <div class="card-box service-card">
+                    <div class="service-icon"><i class="fa-solid fa-crown"></i></div>
+                    <div class="service-title">VIP Package</div>
+                    <div class="service-text">Custom application for business and family relocation. <br><strong>Total from $2,000</strong></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-box service-card">
+                    <div class="service-icon"><i class="fa-solid fa-passport"></i></div>
+                    <div class="service-title">Company Setup</div>
+                    <div class="service-text">Reside in Ukraine, travel to Europe, turnkey business. <br><strong>Total from $3,000</strong></div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="400">
+                <div class="card-box service-card">
+                    <div class="service-icon"><i class="fa-solid fa-handshake-angle"></i></div>
+                    <div class="service-title">For Agents</div>
+                    <div class="service-text">Special terms for international agents. Welcome to our community.</div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card-box service-card">
-          <div class="service-icon">🌍</div>
-          <div class="service-title">Recruitment</div>
-          <div class="service-text">Hiring qualified workers from Asia, Africa and CIS countries.</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card-box service-card">
-          <div class="service-icon">🛂</div>
-          <div class="service-title">Visa Support</div>
-          <div class="service-text">Assistance with visas, residence permits and legalization.</div>
-        </div>
-      </div>
-
-      <div class="col-md-6 col-lg-3">
-        <div class="card-box service-card">
-          <div class="service-icon">⚖️</div>
-          <div class="service-title">Legal Support</div>
-          <div class="service-text">Consulting on labor law and migration regulations.</div>
-        </div>
-      </div>
-
     </div>
-  </div>
 </section>
 
-<!-- ABOUT (UPDATED) -->
-<section id="about" class="py-5 bg-white">
-  <div class="container">
-    <h2 class="section-title text-center">Why Choose Us</h2>
-
-    <div class="row text-center g-4">
-
-      <div class="col-md-4">
-        <div class="about-card">
-          <div class="about-icon">🌍</div>
-          <div class="about-number">20+</div>
-          <div class="about-text">Countries of recruitment</div>
+<section class="py-5 bg-white">
+    <div class="container">
+        <h2 class="section-title text-center" data-aos="fade-up">Why Clients Trust Us</h2>
+        <div class="row g-4 text-center justify-content-center">
+            <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="100">
+                <div class="card-box trust-card">
+                    <div class="trust-icon"><i class="fa-solid fa-building"></i></div>
+                    <div class="trust-text">Registered company</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="200">
+                <div class="card-box trust-card">
+                    <div class="trust-icon"><i class="fa-solid fa-file-contract"></i></div>
+                    <div class="trust-text">Legal contracts</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="300">
+                <div class="card-box trust-card">
+                    <div class="trust-icon"><i class="fa-solid fa-comments"></i></div>
+                    <div class="trust-text">English support</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="400">
+                <div class="card-box trust-card">
+                    <div class="trust-icon"><i class="fa-solid fa-clock"></i></div>
+                    <div class="trust-text">24/7 comms</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2" data-aos="zoom-in" data-aos-delay="500">
+                <div class="card-box trust-card">
+                    <div class="trust-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <div class="trust-text">Office in Kyiv</div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="about-card">
-          <div class="about-icon">👥</div>
-          <div class="about-number">5000+</div>
-          <div class="about-text">Successful placements</div>
-        </div>
-      </div>
-
-      <div class="col-md-4">
-        <div class="about-card">
-          <div class="about-icon">⚖️</div>
-          <div class="about-number">100%</div>
-          <div class="about-text">Legal compliance support</div>
-        </div>
-      </div>
-
     </div>
-  </div>
 </section>
 
-<!-- NEWS (UPDATED) -->
-<section id="news" class="py-5 news">
-  <div class="container">
-    <h2 class="section-title text-center">Latest News</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-4">
-        <a href="https://ec.europa.eu/commission/presscorner/home/en" target="_blank">
-          <div class="news-card">
-            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40">
-            <div class="news-content">
-              <div class="news-title">New Work Permit Rules</div>
-              <div class="news-text">Updates in European labor migration regulations.</div>
+<!-- ABOUT -->
+<section id="about" class="py-5 about-section">
+    <div class="container">
+        <h2 class="section-title text-center mb-5" data-aos="fade-up">Why Choose Us</h2>
+        <div class="row text-center g-4 justify-content-center">
+            <div class="col-md-4 col-lg-3" data-aos="zoom-out" data-aos-delay="100">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="about-number">20+</div>
+                    <div class="about-text">Countries of recruitment</div>
+                </div>
             </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-md-4">
-        <a href="https://www.ilo.org/global/lang--en/index.htm" target="_blank">
-          <div class="news-card">
-            <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d">
-            <div class="news-content">
-              <div class="news-title">Labor Market Trends</div>
-              <div class="news-text">Demand for foreign workers in 2026.</div>
+            <div class="col-md-4 col-lg-3" data-aos="zoom-out" data-aos-delay="200">
+                <div class="about-card">
+                    <!-- ИСПРАВЛЕННАЯ СТРОКА ТУТ -->
+                    <div class="about-icon"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="about-number">5000+</div>
+                    <div class="about-text">Successful placements</div>
+                </div>
             </div>
-          </div>
-        </a>
-      </div>
-
-      <div class="col-md-4">
-        <a href="https://www.reuters.com/markets/" target="_blank">
-          <div class="news-card">
-            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978">
-            <div class="news-content">
-              <div class="news-title">Employer Partnerships</div>
-              <div class="news-text">New cooperation programs for international hiring.</div>
+            <div class="col-md-4 col-lg-3" data-aos="zoom-out" data-aos-delay="300">
+                <div class="about-card">
+                    <div class="about-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="about-number">100%</div>
+                    <div class="about-text">Legal compliance support</div>
+                </div>
             </div>
-          </div>
-        </a>
-      </div>
-
+        </div>
     </div>
-  </div>
 </section>
 
-<!-- CONTACT (UPDATED) -->
+<section id="news" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center" data-aos="fade-up">Latest News</h2>
+        <div class="row g-4">
+            <div class="col-md-4" data-aos="fade-right">
+                <a href="https://ec.europa.eu/commission/presscorner/home/en" target="_blank">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40" alt="News">
+                        <div class="news-content">
+                            <div class="news-title">New Work Permit Rules</div>
+                            <div class="news-text">Updates in European labor migration.</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4" data-aos="fade-up">
+                <a href="https://www.ilo.org/global/lang--en/index.htm" target="_blank">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="News">
+                        <div class="news-content">
+                            <div class="news-title">Labor Market Trends</div>
+                            <div class="news-text">Demand for foreign workers in 2026.</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4" data-aos="fade-left">
+                <a href="https://www.reuters.com/markets/" target="_blank">
+                    <div class="news-card">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978" alt="News">
+                        <div class="news-content">
+                            <div class="news-title">Employer Partnerships</div>
+                            <div class="news-text">New programs for international hiring.</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section id="contact" class="py-5 bg-white">
-  <div class="container">
-    <h2 class="section-title text-center">Contact Us</h2>
-
-    <div class="row g-4">
-
-      <div class="col-md-6">
-        <div class="contact-card">
-          <h5 class="mb-3">Contact Information</h5>
-
-          <div class="contact-item">
-            <div class="contact-icon">📍</div>
-            Illinska Street, 8, Kyiv, 01004
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">📞</div>
-            +380960391094
-          </div>
-
-          <div class="contact-item">
-            <div class="contact-icon">🏢</div>
-            Vanguard Mobility
-          </div>
+    <div class="container">
+        <h2 class="section-title text-center" data-aos="fade-up">Contact Us</h2>
+        <div class="row g-4">
+            <div class="col-md-6" data-aos="fade-right">
+                <div class="contact-card h-100">
+                    <h5 class="mb-4">Contact Information</h5>
+                    <a href="https://goo.gl/maps/example" target="_blank" class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        Illinska Street, 8, Kyiv, 04070
+                    </a>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
+                        +380947101170
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <a href="mailto:vanguardmblty@gmail.com">vanguardmblty@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fa-solid fa-briefcase"></i></div>
+                        Vanguard Mobility
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6" data-aos="fade-left">
+                <div class="contact-card">
+                    <h5 class="mb-4">Send Request</h5>
+                    <form onsubmit="sendForm(event)">
+                        <input class="form-control mb-3" name="name" placeholder="Your Name" required>
+                        <input class="form-control mb-3" name="email" type="email" placeholder="Email Address" required>
+                        <textarea class="form-control mb-3" name="message" rows="4" placeholder="How can we help you?" required></textarea>
+                        <button class="btn btn-primary w-100 py-2 fw-bold">Send via WhatsApp</button>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="col-md-6">
-        <div class="contact-card">
-          <h5 class="mb-3">Send Request</h5>
-
-          <form onsubmit="sendForm(event)">
-            <input class="form-control mb-2" name="name" placeholder="Name" required>
-            <input class="form-control mb-2" name="email" placeholder="Email" required>
-            <textarea class="form-control mb-2" name="message" placeholder="Message" required></textarea>
-            <button class="btn btn-primary w-100">Send</button>
-          </form>
-
-        </div>
-      </div>
-
     </div>
-  </div>
 </section>
 
 <footer>
-  <div class="container text-center">
-    © 2026 Vanguard Mobility. All rights reserved.
-  </div>
+    <div class="container text-center">
+        <p class="mb-0">© 2026 Vanguard Mobility. All rights reserved.</p>
+    </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-function sendForm(e){
-  e.preventDefault();
-
-  const form = e.target;
-
-  const name = form.name.value;
-  const email = form.email.value;
-  const message = form.message.value;
-
-  const phone = "380960391094";
-
-  const text =
-`📩 New Request:
-👤 Name: ${name}
-📧 Email: ${email}
-💬 Message: ${message}`;
-
-  const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-
-  window.open(url, "_blank");
-}
-
-/* smooth scroll */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener("click",function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({
-      behavior:"smooth"
-    });
-  });
-});
-</script>
-
-<a href="https://wa.me/380960391094?text=Hello%20I%20need%20consultation"
-   class="whatsapp-float"
-   target="_blank">
-   💬
+<a href="https://wa.me/380947101170?text=Hello%20I%20need%20consultation" class="whatsapp-float" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
 </a>
 
-<style>
-.whatsapp-float{
-  position:fixed;
-  right:18px;
-  bottom:18px;
-  width:56px;
-  height:56px;
-  background:#25D366;
-  color:#fff;
-  font-size:26px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  box-shadow:0 10px 25px rgba(0,0,0,.2);
-  z-index:999;
-  text-decoration:none;
-}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init({
+        duration: 800,
+        once: true,
+        offset: 100
+    });
 
-.whatsapp-float:hover{
-  transform:scale(1.1);
-}
-</style>
+    // Form Handling
+    function sendForm(e) {
+        e.preventDefault();
+        const form = e.target;
+        const text = `📩 New Request:\n👤 Name: ${form.name.value}\n📧 Email: ${form.email.value}\n💬 Message: ${form.message.value}`;
+        const url = `https://wa.me/380947101170?text=${encodeURIComponent(text)}`;
+        window.open(url, "_blank");
+    }
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
