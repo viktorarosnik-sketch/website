@@ -28,7 +28,6 @@
             color: var(--text);
         }
 
-        /* Глобальные переходы для ссылок */
         a {
             text-decoration: none;
             transition: var(--transition);
@@ -58,7 +57,6 @@
             background-position: center;
             color: #fff;
             padding: 90px 0;
-            text-align: center;
         }
 
         .section-title {
@@ -102,7 +100,7 @@
         .trust-card:hover .trust-icon { transform: scale(1.2); color: var(--primary-dark); }
         .trust-text { font-size: 14px; font-weight: 500; color: #334155; }
 
-        /* ОПТИМИЗИРОВАННЫЙ ABOUT SECTION */
+        /* ABOUT SECTION */
         .about-section { background: linear-gradient(180deg, #ffffff, #f8fafc); position: relative; overflow: hidden; }
         .about-card {
             background: rgba(255, 255, 255, 0.8);
@@ -127,6 +125,72 @@
         .about-number { font-size: 32px; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
         .about-text { font-size: 14px; color: #64748b; font-weight: 500; }
 
+        /* CLIENT REVIEWS */
+        .client-review-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .client-review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(37, 99, 235, 0.08);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+        .client-logo-box {
+            height: 250px;
+            overflow: hidden;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f8fafc;
+            border: 1px solid var(--border);
+            padding: 8px;
+            transition: var(--transition);
+        }
+        .client-review-card:hover .client-logo-box {
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 12px 30px rgba(37, 99, 235, 0.1);
+        }
+        .client-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .client-review-card:hover .client-img {
+            transform: scale(1.03);
+        }
+        .client-stars {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+        .review-quote {
+            font-style: italic;
+            color: var(--text);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+        .client-name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+        .client-info {
+            font-size: 0.85rem;
+            color: #64748b;
+            display: block;
+        }
+
         /* NEWS */
         .news-card { position: relative; border-radius: 16px; overflow: hidden; transition: var(--transition); }
         .news-card img { height: 220px; object-fit: cover; width: 100%; filter: brightness(.75); transition: var(--transition); }
@@ -137,14 +201,11 @@
             background: linear-gradient(to top, rgba(0,0,0,.8), transparent);
         }
 
-        /* CONTACTS & TRANSITIONS */
+        /* CONTACTS */
         .contact-card { background: #fff; border-radius: 18px; padding: 25px; border: 1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.05); }
         .contact-item { display: flex; gap: 10px; margin-bottom: 12px; align-items: center; font-size: 14px; color: #334155; }
-        
-        /* Плавная ссылка на Email */
         .contact-item a { color: var(--text); font-weight: 500; }
         .contact-item a:hover { color: var(--primary); }
-        
         .contact-icon {
             width: 35px; height: 35px;
             display: flex; align-items: center; justify-content: center;
@@ -154,6 +215,7 @@
         form input, form textarea { border-radius: 12px !important; border: 1px solid #e2e8f0 !important; padding: 10px !important; transition: var(--transition); }
         form input:focus, form textarea:focus { border-color: var(--primary) !important; box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important; outline: none; }
         
+        /* WHATSAPP FLOAT */
         .whatsapp-float {
             position: fixed; right: 18px; bottom: 18px;
             width: 56px; height: 56px;
@@ -165,37 +227,6 @@
         .whatsapp-float:hover { transform: scale(1.1) rotate(10deg); color: #fff; }
 
         footer { background: var(--dark); color: #94a3b8; padding: 30px 0; margin-top: 40px; }
-		/* OUR CLIENTS SECTION — УВЕЛИЧЕННЫЙ ВАРИАНТ */
-        .client-logo-box {
-            background: #fff;
-            border: 1px solid var(--border);
-            border-radius: 16px; /* Чуть увеличили скругление для больших карточек */
-            padding: 8px;        /* Уменьшили отступы, чтобы картинка занимала больше места */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 250px;       /* УВЕЛИЧИЛИ ВЫСОТУ (было 110px) */
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-            transition: var(--transition);
-        }
-        .client-logo-box:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 18px 40px rgba(37, 99, 235, 0.15);
-            border-color: rgba(37, 99, 235, 0.3);
-        }
-        .client-img {
-            width: 100%;         /* Заставляем картинку тянуться по ширине */
-            height: 100%;        /* Заставляем картинку тянуться по высоте */
-            object-fit: cover;   /* Картинка аккуратно заполняет всё пространство без искажения пропорций */
-            border-radius: 10px;
-            filter: grayscale(100%) opacity(0.85); /* Сделали чуть ярче в обычном состоянии */
-            transition: var(--transition);
-        }
-        .client-logo-box:hover .client-img {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.05);
-        }
     </style>
 </head>
 
@@ -220,6 +251,7 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="#clients">Clients</a></li>
                 <li class="nav-item"><a class="nav-link" href="#news">News</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
@@ -228,8 +260,8 @@
 </nav>
 
 <section class="hero">
-    <div class="container" data-aos="fade-up">
-        <h1 class="display-4 fw-bold">Foreign Employment & Work Permits in Ukraine</h1>
+    <div class="container text-center" data-aos="fade-up">
+        <h1 class="display-4 fw-bold">Foreign Employment & Work Permits in Ukraine & EU</h1>
         <p class="lead mt-3">We help foreign workers find legal employment and provide full documentation, visa, and migration services.</p>
         <a href="https://wa.me/380947101170?text=Hello%20I%20would%20like%20consultation" target="_blank" class="btn btn-warning btn-lg mt-3 fw-bold">Get Consultation</a>
     </div>
@@ -309,7 +341,6 @@
     </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="py-5 about-section">
     <div class="container">
         <h2 class="section-title text-center mb-5" data-aos="fade-up">Why Choose Us</h2>
@@ -323,7 +354,6 @@
             </div>
             <div class="col-md-4 col-lg-3" data-aos="zoom-out" data-aos-delay="200">
                 <div class="about-card">
-                    <!-- ИСПРАВЛЕННАЯ СТРОКА ТУТ -->
                     <div class="about-icon"><i class="fa-solid fa-user-check"></i></div>
                     <div class="about-number">5000+</div>
                     <div class="about-text">Successful placements</div>
@@ -342,29 +372,74 @@
 
 <section id="clients" class="py-5 bg-white">
     <div class="container">
-        <h2 class="section-title text-center" data-aos="fade-up">Our Clients</h2>
+        <h2 class="section-title text-center" data-aos="fade-up">Our Clients & Reviews</h2>
         <p class="text-center text-muted mb-5" data-aos="fade-up" data-aos-delay="100">
-            We are proud to have supported businesses and professionals from various industries worldwide.
+            See what our clients say about their experience with our relocation and employment services.
         </p>
+        
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="client-review-card">
+                    <div class="client-logo-box mb-3">
+                        <img src="images/client1.jpeg" alt="Client 1" class="img-fluid client-img">
+                    </div>
+                    <div class="review-text-box">
+                        <div class="client-stars mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">"Great professional service! They helped me find a job and managed all the visa paperwork quickly. Highly recommend Vanguard Mobility!"</p>
+                        <h5 class="client-name">Siddhartha Islam</h5>
+                        <span class="client-info">Software Engineer, Bangladesh</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="client-review-card">
+                    <div class="client-logo-box mb-3">
+                        <img src="images/client4.jpeg" alt="Client 2" class="img-fluid client-img">
+                    </div>
+                    <div class="review-text-box">
+                        <div class="client-stars mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">"Excellent support throughout the entire relocation process. The team was always available to answer my questions."</p>
+                        <h5 class="client-name">Dil Zaidi</h5>
+                        <span class="client-info">Marketing Specialist, Pakistan</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="client-review-card">
+                    <div class="client-logo-box mb-3">
+                        <img src="images/client3.jpeg" alt="Client 3" class="img-fluid client-img">
+                    </div>
+                    <div class="review-text-box">
+                        <div class="client-stars mb-2">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-quote">"Very transparent and reliable. Thanks to their international network, I got a contract within just a few weeks."</p>
+                        <h5 class="client-name">Ashish Aryal</h5>
+                        <span class="client-info">Logistics Manager, Nepal</span>
+                    </div>
+                </div>
+            </div>
 
-        <div class="row g-4 justify-content-center align-items-center">
-            <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="100">
-                <div class="client-logo-box">
-                    <img src="images/client1.jpeg" alt="Client 1" class="img-fluid client-img">
-                </div>
-            </div>
-			<div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="400">
-                <div class="client-logo-box">
-                    <img src="images/client4.jpeg" alt="Client 3" class="img-fluid client-img">
-                </div>
-            </div>
-         
-            <div class="col-6 col-md-4 col-lg-3" data-aos="zoom-in" data-aos-delay="300">
-                <div class="client-logo-box">
-                    <img src="images/client3.jpeg" alt="Client 3" class="img-fluid client-img">
-                </div>
-            </div>
-			
+        </div>
     </div>
 </section>
 
@@ -453,7 +528,7 @@
             <div class="col-12">
                 <div class="contact-card p-0 overflow-hidden" style="height: 400px;">
                     <iframe 
-                        src="https://maps.google.com/maps?q=Vanguard%20Mobility,%20Illinska%20Street,%208,%20Kyiv&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                        src="https://maps.google.com/maps?q=Illinska%20Street,%208,%20Kyiv&t=&z=13&ie=UTF8&iwloc=&output=embed" 
                         width="100%" 
                         height="100%" 
                         style="border:0; display: block;" 
